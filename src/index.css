@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+
+    /* Dark-first surface tokens: obsidian steel base, glacial light text */
+    --background: 222 25% 4%;
+    --foreground: 210 20% 98%;
+    --card: 220 22% 7%;
+    --card-foreground: 210 20% 98%;
+    --popover: 220 22% 7%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 222 25% 6%;
+    --secondary: 217 19% 13%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 217 19% 13%;
+    --muted-foreground: 215 16% 68%;
+    --accent: 217 19% 16%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 19% 18%;
+    --input: 217 19% 20%;
+    --ring: 205 40% 55%;
+    --radius: 0.25rem;
+    --chart-1: 205 40% 55%;
+    --chart-2: 215 16% 68%;
+    --chart-3: 217 19% 40%;
+    --chart-4: 190 30% 60%;
+    --chart-5: 222 25% 30%;
+    --sidebar-background: 222 25% 4%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 210 20% 98%;
+    --sidebar-primary-foreground: 222 25% 6%;
+    --sidebar-accent: 217 19% 13%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 217 19% 18%;
+    --sidebar-ring: 205 40% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-graphite text-glacial font-body antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading;
+    letter-spacing: -0.03em;
+  }
+
+  ::selection {
+    background: #4C7FA6;
+    color: #F8FAFC;
+  }
+
+  :focus-visible {
+    outline: 2px solid #4C7FA6;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Technical spec-sheet label — used above every section heading */
+  .spec-label {
+    @apply font-mono text-[11px] uppercase tracking-[0.28em] text-aluminium/60;
+  }
+
+  .frame-line {
+    @apply border border-white/10;
+  }
+
+  .glass-panel {
+    @apply border border-white/10 bg-graphite/80 backdrop-blur-md;
+  }
+
+  .btn-steel {
+    @apply inline-flex items-center justify-center gap-2 bg-glacial text-graphite font-heading font-medium
+      transition-all duration-300 hover:bg-aluminium;
+  }
+
+  .btn-ghost-line {
+    @apply inline-flex items-center justify-center gap-2 border border-white/20 text-glacial font-heading font-medium
+      transition-all duration-300 hover:border-glacial hover:bg-white/5;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-steelblue
+      after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+@layer utilities {
+  .grain {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 84px 84px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
